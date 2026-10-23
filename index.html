@@ -1,12 +1,54 @@
-<!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE html><html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Facebook Mini App</title><script src="https://telegram.org/js/telegram-web-app.js"></script>
 
-    <title>Facebook Mini App</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        text-align: center;
+        padding: 30px 15px;
+        background: #f0f2f5;
+    }
 
-    <script src="https://telegram.org/js/telegram-web-app.js"></script>
+    h2 {
+        color: #1877f2;
+    }
 
-    <style>
-        body {
+    button {
+        display: block;
+        width: 100%;
+        max-width: 300px;
+        margin: 20px auto;
+        padding: 15px;
+        border: none;
+        border-radius: 8px;
+        background: #1877f2;
+        color: white;
+        font-size: 17px;
+        cursor: pointer;
+    }
+</style>
+
+</head><body>
+    <h2>Facebook Mini App</h2><button onclick="openFacebook()">Open Facebook</button>
+
+<button onclick="openMessages()">Open Facebook Messages</button>
+
+<script>
+    const tg = window.Telegram.WebApp;
+    tg.ready();
+    tg.expand();
+
+    function openFacebook() {
+        window.location.href = "https://www.facebook.com/";
+    }
+
+    function openMessages() {
+        window.location.href = "https://www.messenger.com/";
+    }
+</script>
+
+</body>
+</html>
