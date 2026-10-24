@@ -3,20 +3,44 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#1877f2">
+
     <title>Facebook Mini App</title>
 
     <script src="https://telegram.org/js/telegram-web-app.js"></script>
 
     <style>
+        * {
+            box-sizing: border-box;
+        }
+
         body {
             font-family: Arial, sans-serif;
             text-align: center;
-            padding: 25px 15px;
+            padding: 30px 15px;
+            margin: 0;
             background: #f0f2f5;
+            color: #1c1e21;
+        }
+
+        .container {
+            max-width: 400px;
+            margin: 30px auto;
+            padding: 25px 20px;
+            background: white;
+            border-radius: 14px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
         }
 
         h2 {
             color: #1877f2;
+            margin-bottom: 12px;
+        }
+
+        p {
+            color: #606770;
+            line-height: 1.5;
+            font-size: 14px;
         }
 
         button {
@@ -29,32 +53,46 @@
             border-radius: 8px;
             background: #1877f2;
             color: white;
-            font-size: 17px;
+            font-size: 16px;
+            font-weight: bold;
             cursor: pointer;
         }
 
-        #status {
-            color: #555;
-            font-size: 14px;
+        button:active {
+            opacity: 0.85;
+        }
+
+        .messages {
+            background: #0866ff;
+        }
+
+        .note {
+            font-size: 12px;
+            margin-top: 20px;
         }
     </style>
 </head>
 
 <body>
+    <div class="container">
+        <h2>Facebook Mini App</h2>
 
-    <h2>Facebook Mini App</h2>
+        <p>Choose what you want to open.</p>
 
-    <button onclick="openPage('https://m.facebook.com/')">
-        Open Facebook
-    </button>
+        <button type="button" onclick="openFacebook()">
+            Open Facebook
+        </button>
 
-    <button onclick="openPage('https://m.facebook.com/messages/')">
-        Open Facebook Messages
-    </button>
+        <button type="button"
+                class="messages"
+                onclick="openFacebookMessages()">
+            Open Facebook Messages
+        </button>
 
-    <p id="status">
-        Pages will be opened within this Mini App when the website allows it.
-    </p>
+        <p class="note">
+            Facebook login and account settings are managed by Facebook.
+        </p>
+    </div>
 
     <script>
         const tg = window.Telegram.WebApp;
@@ -62,12 +100,15 @@
         tg.ready();
         tg.expand();
 
-        function openPage(url) {
-            // Navigate the current Mini App window.
-            // This does not intentionally open Chrome.
-            window.location.href = url;
+        function openFacebook() {
+            window.location.href =
+                "https://www.facebook.com/login/?_miniapp=1";
+        }
+
+        function openFacebookMessages() {
+            window.location.href =
+                "https://www.facebook.com/messages/?_miniapp=1";
         }
     </script>
-
 </body>
 </html>
