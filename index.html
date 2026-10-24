@@ -2,9 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, initial-scale=1.0">
-
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Facebook Mini App</title>
 
     <script src="https://telegram.org/js/telegram-web-app.js"></script>
@@ -13,7 +11,7 @@
         body {
             font-family: Arial, sans-serif;
             text-align: center;
-            padding: 30px 15px;
+            padding: 25px 15px;
             background: #f0f2f5;
         }
 
@@ -25,7 +23,7 @@
             display: block;
             width: 100%;
             max-width: 300px;
-            margin: 20px auto;
+            margin: 15px auto;
             padding: 15px;
             border: none;
             border-radius: 8px;
@@ -34,6 +32,11 @@
             font-size: 17px;
             cursor: pointer;
         }
+
+        #status {
+            color: #555;
+            font-size: 14px;
+        }
     </style>
 </head>
 
@@ -41,13 +44,17 @@
 
     <h2>Facebook Mini App</h2>
 
-    <button onclick="openFacebook()">
+    <button onclick="openPage('https://m.facebook.com/')">
         Open Facebook
     </button>
 
-    <button onclick="openMessages()">
+    <button onclick="openPage('https://m.facebook.com/messages/')">
         Open Facebook Messages
     </button>
+
+    <p id="status">
+        Pages will be opened within this Mini App when the website allows it.
+    </p>
 
     <script>
         const tg = window.Telegram.WebApp;
@@ -55,12 +62,10 @@
         tg.ready();
         tg.expand();
 
-        function openFacebook() {
-            window.location.assign("https://m.facebook.com/");
-        }
-
-        function openMessages() {
-            window.location.assign("https://m.me/");
+        function openPage(url) {
+            // Navigate the current Mini App window.
+            // This does not intentionally open Chrome.
+            window.location.href = url;
         }
     </script>
 
